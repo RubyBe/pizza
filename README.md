@@ -30,3 +30,7 @@
 * It can calculate the cost of a pizza, add sales tax and delivery charge
   * **Example input:** new Pizza
   * **Example output:** "Whole Wheat", "Garlic", "Mushrooms, Onions, Green Pepper, Sausage, Mozzarella, $27.65"
+
+  ##### Ordering and Fullfillment Process Map
+
+  ![process](img/process.png)
