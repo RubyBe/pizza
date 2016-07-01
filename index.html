@@ -15,27 +15,41 @@
       <h1>Doc Gonzo's Pies & Noodles</h1>
       <hr></hr>
 
-      <div class="btn-group-horizontal" role="group">
+      <div class="btn-group-horizontal" role="group" id="order-type">
         <button type="button" id="order-online" class="btn btn-primary">Order Online</button>
         <button type="button" id="order-telephone" class="btn btn-primary">Order by Skype</button>
         <button type="button" id="order-email" class="btn btn-primary">Order by Email</button>
       </div>
 
       <hr></hr>
+      <div class="row" id="orderDisplay">
+        <div class="col-sm-12">
+          <div class="container jumbotron">
+            <div id="fullfill-output"></div>
+            <div id="food-output"></div>
+            <div id="size-output"></div>
+            <div id="crust-output"></div>
+            <div id="sauce-output"></div>
+            <div id="toppings-output"></div>
+          </div>
+        </div>
+      </div>
+      <hr></hr>
 
       <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-3" id="fullfillment-selection">
           <p>Would you like to order for eat-in, pick-up, or delivery ($5.00 fee)?</p>
           <div class="btn-group" id="fullfill">
             <button id="fullfillment-type" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
              Get it by:<span class="caret"></span>
             </button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" id=fullfilledType>
               <li><a id="delivery">Delivery</a></li>
               <li><a id="eatin">Eat-in</a></li>
               <li><a id="pickup">Pickup</a></li>
             </ul>
           </div>
+          <hr></hr>
         </div>
 
         <div class="col-sm-3" id = "food-selection">
@@ -50,6 +64,7 @@
               <li><a id="sandwich">Sandwich</a></li>
             </ul>
           </div>
+          <hr></hr>
         </div>
 
         <div class="col-sm-3" id="size-selection">
@@ -64,6 +79,7 @@
               <li><a id="large">Large</a></li>
             </ul>
           </div>
+          <hr></hr>
         </div>
 
         <div class="col-sm-3" id="ingredients-selection">
@@ -118,6 +134,8 @@
         </div>
 
       </div>
+
+
 
     </div>
   </body>

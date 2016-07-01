@@ -60,6 +60,8 @@ Order.prototype.calculateOrderPrice = function(pizza, type) {
 
 var pizzaPrice = 0;
 var orderTotalPrice = 0;
+var fulfillType;
+var orderType;
 // **************************************************************************************************************
 // User Interface logic
 // console displays for testing
@@ -74,55 +76,58 @@ console.log("Order total price = $" + orderTotalPrice.toFixed(2));
 
 $(document).ready(function(){
 
+  $("#order-online").click(function(event) {
+    event.preventDefault();
+    orderType="Online";
+    $("#fullfillment-selection").show();
+  });
 
   // Fullfillment method always shows - selection of one will trigger option to pick food type
-  $("#delivery").click(function (event) {
-    event.preventDefault();
-    console.log("wants delivery");
+  $("#delivery").click(function() {
+    $("#fullfill-output").text("Your order will be delivered.");
     $("#food-selection").show();
   });
-  $("#eatin").click(function (event) {
-    event.preventDefault();
-    console.log("wants to eat in");
+
+  $("#eatin").click(function() {
+    $("#fullfill-output").text("Your order and a table will be waiting for you here.");
     $("#food-selection").show();
   });
-  $("#pickup").click(function (event) {
-    event.preventDefault();
-    console.log("wants to pick up");
+
+  $("#pickup").click(function() {
+    $("#fullfill-output").text("Your order will be waiting for you to pick up here.");
     $("#food-selection").show();
   });
 
   // Selection of food type will trigger option to pick pizza size
-  $("#pasta").click(function (event) {
-    event.preventDefault();
-    console.log("wants pasta");
+  $("#pasta").click(function() {
+    $("#food-output").text("You've selected pasta for your meal.");
+    $("#size-selection").hide();
   });
-  $("#pizza").click(function (event) {
-    event.preventDefault();
-    console.log("wants pizza");
+
+  $("#pizza").click(function() {
+    $("#food-output").text("You've selected a pizza for your meal.");
     $("#size-selection").show();
   });
+
   $("#sandwich").click(function (event) {
-    event.preventDefault();
+    $("#food-output").text("You've selected a sandwich for your meal.");
+    $("#size-selection").hide();
   });
 
   // Selection of size will trigger option to add ingredients
-  $("#small").click(function (event) {
-    event.preventDefault();
-    console.log("wants small");
-    $("#ingredients-selection").show();
-  });
-  $("#medium").click(function (event) {
-    event.preventDefault();
-    console.log("wants medium");
-    $("#ingredients-selection").show();
-  });
-  $("#large").click(function (event) {
-    event.preventDefault();
-    console.log("wants large");
+  $("#small").click(function() {
+    $("#size-output").text("You've decided a small pizza will work.");
     $("#ingredients-selection").show();
   });
 
+  $("#medium").click(function() {
+    $("#size-output").text("You've decided a medium pizza will work.");
+    $("#ingredients-selection").show();
+  });
 
+  $("#large").click(function() {
+    $("#size-output").text("You've decided a large pizza will work.");
+    $("#ingredients-selection").show();
+  });
 
 });
