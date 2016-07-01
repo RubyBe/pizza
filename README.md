@@ -44,4 +44,4 @@
 
   ##### User Interface Wireframe
 
-  ![interface](img/wireframe.png)
+  ![interface](img/interface.png)
