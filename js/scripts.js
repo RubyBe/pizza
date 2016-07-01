@@ -50,11 +50,12 @@ Pizza.prototype.calculatePizzaPrice = function() {
 
 // An order class prototype method which calculates the total price of the order
 Order.prototype.calculateOrderPrice = function(pizza, type) {
-  var fee = 0;
+  deliveryFee = 0;
   if (type === "Delivery") {
-    fee = 5; // add $5 delivery fee
+    deliveryFee = 5; // add $5 delivery fee
   }
-  var totalPrice = (pizza + (pizza*.10) + fee);
+  orderTaxes = (pizza*.10);
+  var totalPrice = (pizza + orderTaxes + deliveryFee);
   return totalPrice;
 }
 
@@ -62,17 +63,14 @@ var pizzaPrice = 0;
 var orderTotalPrice = 0;
 var fulfillType;
 var orderType;
+var deliveryFee;
+var orderTaxes;
 // **************************************************************************************************************
 // User Interface logic
 // console displays for testing
 var myCustomer = new Customer("Dr. Gonzo", "2000 2nd Avenue, # 5, Seattle", "206-555-1212");
 var myOrder = new Order(1, "Pizza", "Delivery");
 var myPizza = new Pizza("Small", "Whole Wheat", "Garlic", ["Mushrooms", "Sausage", "Green Pepper", "Onion", "Mozzarella"]);
-
-pizzaPrice = myPizza.calculatePizzaPrice();
-console.log("Pizza total price = $" + pizzaPrice.toFixed(2));
-orderTotalPrice = myOrder.calculateOrderPrice(pizzaPrice, myOrder.orderType);
-console.log("Order total price = $" + orderTotalPrice.toFixed(2));
 
 $(document).ready(function(){
 
@@ -128,8 +126,8 @@ $(document).ready(function(){
   $("#sourdough").click(function() {
     $("#crust-output").text("You've chosen a sourdough crust.");
   });
-  $("#white").click(function() {
-    $("#crust-output").text("You've chosen a white crust.");
+  $("#regular").click(function() {
+    $("#crust-output").text("You've chosen a regular white crust.");
   });
   $("#whole-wheat").click(function() {
     $("#crust-output").text("You've chosen a whole wheat crust.");
@@ -156,5 +154,18 @@ $(document).ready(function(){
   $("#mozzarella").click(function() {
     $("#cheese-output").text("Mozarella cheese is your choice.");
   });
+
+  // Click to view the current price
+  $("#button-price").click(function() {
+    pizzaPrice = myPizza.calculatePizzaPrice();
+    console.log("Pizza total price = $" + pizzaPrice.toFixed(2));
+    orderTotalPrice = myOrder.calculateOrderPrice(pizzaPrice, myOrder.orderType);
+    console.log("Order total price = $" + orderTotalPrice.toFixed(2));
+    $("#pizza-price-output").text(pizzaPrice.toFixed(2));
+    $("#delivery-price-output").text(deliveryFee.toFixed(2));
+    $("#taxes-price-output").text(orderTaxes.toFixed(2));
+    $("#total-price-output").text(orderTotalPrice.toFixed(2));
+
+  })
 
 });
