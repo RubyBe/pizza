@@ -75,6 +75,7 @@ console.log("Order total price = $" + orderTotalPrice.toFixed(2));
 $(document).ready(function(){
 
 
+  // Fullfillment method always shows - selection of one will trigger option to pick food type
   $("#delivery").click(function (event) {
     event.preventDefault();
     console.log("wants delivery");
@@ -90,5 +91,38 @@ $(document).ready(function(){
     console.log("wants to pick up");
     $("#food-selection").show();
   });
+
+  // Selection of food type will trigger option to pick pizza size
+  $("#pasta").click(function (event) {
+    event.preventDefault();
+    console.log("wants pasta");
+  });
+  $("#pizza").click(function (event) {
+    event.preventDefault();
+    console.log("wants pizza");
+    $("#size-selection").show();
+  });
+  $("#sandwich").click(function (event) {
+    event.preventDefault();
+  });
+
+  // Selection of size will trigger option to add ingredients
+  $("#small").click(function (event) {
+    event.preventDefault();
+    console.log("wants small");
+    $("#ingredients-selection").show();
+  });
+  $("#medium").click(function (event) {
+    event.preventDefault();
+    console.log("wants medium");
+    $("#ingredients-selection").show();
+  });
+  $("#large").click(function (event) {
+    event.preventDefault();
+    console.log("wants large");
+    $("#ingredients-selection").show();
+  });
+
+
 
 });
