@@ -26,9 +26,9 @@
       <div class="row">
         <div class="col-sm-3">
           <p>Would you like to order for eat-in, pick-up, or delivery ($5.00 fee)?</p>
-          <div class="btn-group id="fullfill">
+          <div class="btn-group" id="fullfill">
             <button id="fullfillment-type" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-              Select method:  <span class="caret"></span>
+             Get it by:<span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
               <li><a id="delivery">Delivery</a></li>
@@ -40,10 +40,9 @@
 
         <div class="col-sm-3" id = "food-selection">
           <p>What are you in the mood for?</p>
-          <!-- Single button -->
           <div class="btn-group">
             <button id="food-type" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Select method:  <span class="caret"></span>
+              I need:<span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
               <li><a id="pasta">Pasta</a></li>
@@ -55,10 +54,9 @@
 
         <div class="col-sm-3" id="size-selection">
           <p>What size do you want that pizza (small feeds 1-2, medium 3-5, and large 6-8)?</p>
-          <!-- Single button -->
           <div class="btn-group">
             <button id="size" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Select method:  <span class="caret"></span>
+              Select size:  <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
               <li><a id="small">Small</a></li>
@@ -73,7 +71,7 @@
             <p>Choose whole wheat, white, or sourdough crust:</p>
             <div class="btn-group">
               <button id="crust" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select method:  <span class="caret"></span>
+                Select crust:  <span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
                 <li><a href="#">Sourdough</a></li>
@@ -85,7 +83,7 @@
             <p>Choose garlic, marinara, or white sauce:</p>
             <div class="btn-group">
               <button id="sauce" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select method:  <span class="caret"></span>
+                Select sauce:  <span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
                 <li><a id="garlic">Garlic</a></li>
@@ -95,33 +93,31 @@
             </div>
 
             <p>What type of cheese would you like?</p>
-              <div class="btn-group">
-                <button id="food-type" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Select method:  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a id="feta">Feta</a></li>
-                  <li><a id="fontanella">Fontanella</a></li>
-                  <li><a id="mozzarella">Mozzarella</a></li>
-                </ul>
-              </div>
-
-            <p>Choose as many ingredients as you'd like:</p>
             <div class="btn-group">
               <button id="food-type" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select method:  <span class="caret"></span>
+                Select cheese:  <span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
-                <li><a href="#">Pasta</a></li>
-                <li><a href="#">Pizza</a></li>
-                <li><a href="#">Sandwich</a></li>
+                <li><a id="feta">Feta</a></li>
+                <li><a id="fontanella">Fontanella</a></li>
+                <li><a id="mozzarella">Mozzarella</a></li>
               </ul>
+            </div>
+            <hr></hr>
+
+            <p>Choose as many ingredients as you'd like:</p>
+              <form id="ingredients">
+                <input type="checkbox" id="greenpepper">Green Pepper<br>
+                <input type="checkbox" id="mushrooms">Mushrooms<br>
+                <input type="checkbox" id="onions">Onions<br>
+                <input type="checkbox" id="pepperoni">Pepperoni<br>
+                <input type="checkbox" id="sausage">Sausage<br>
+              </form>
             </div>
           </form>
         </div>
 
       </div>
-
 
     </div>
   </body>
