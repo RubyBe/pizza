@@ -48,8 +48,18 @@ Pizza.prototype.calculatePizzaPrice = function() {
   return sizeCost + toppingCost;
 }
 
-var pizzaPrice = 0;
+// An order class prototype method which calculates the total price of the order
+Order.prototype.calculateOrderPrice = function(pizza, type) {
+  var fee = 0;
+  if (type === "Delivery") {
+    fee = 5; // add $5 delivery fee
+  }
+  var totalPrice = (pizza + (pizza*.10) + fee);
+  return totalPrice;
+}
 
+var pizzaPrice = 0;
+var orderTotalPrice = 0;
 // **************************************************************************************************************
 // User Interface logic
 
@@ -60,3 +70,5 @@ var myPizza = new Pizza("Small", "Whole Wheat", "Garlic", ["Mushrooms", "Sausage
 
 pizzaPrice = myPizza.calculatePizzaPrice();
 console.log("Pizza total price = $" + pizzaPrice.toFixed(2));
+orderTotalPrice = myOrder.calculateOrderPrice(pizzaPrice, myOrder.orderType);
+console.log("Order total price = $" + orderTotalPrice.toFixed(2));

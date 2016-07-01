@@ -27,10 +27,21 @@
   * **Example output:** "Whole Wheat", "Garlic", "Mushrooms, Onions, Green Pepper, Sausage, Mozzarella"
 
 
-* It can calculate the cost of a pizza, add sales tax and delivery charge
-  * **Example input:** new Pizza
-  * **Example output:** "Whole Wheat", "Garlic", "Mushrooms, Onions, Green Pepper, Sausage, Mozzarella, $27.65"
+* It can calculate the cost of a pizza
+  * **Example input:** new Pizza, "Small", /"Garlic", "Mushrooms, Onions, Green Pepper, Sausage, Mozzarella/"
+  * **Example output:** $17.50"
+
+
+* It can calculate the total cost of an order, add sales tax and delivery charge
+  * **Example input:** new Order, add Pizza, "Small", "Delivery", /"Garlic", "Mushrooms, Onions, Green Pepper, Sausage, Mozzarella/"
+  * **Example output:** $17.50 + 10% tax + $5.00 delivery charge = $24.25
+
 
   ##### Ordering and Fullfillment Process Map
 
   ![process](img/process.png)
+
+
+  ##### User Interface Wireframe
+
+  ![interface](img/wireframe.png)
