@@ -3,13 +3,126 @@
   <head>
     <!-- styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
     <!-- scripts -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script src="js/scripts.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
     <title>pizza</title>
   </head>
   <body>
+    <div class="container">
+      <h1>Doc Gonzo's Pies & Noodles</h1>
+      <hr></hr>
 
+      <div class="btn-group-horizontal" role="group">
+        <button type="button" id="order-online" class="btn btn-primary">Order Online</button>
+        <button type="button" id="order-telephone" class="btn btn-primary">Order by Skype</button>
+        <button type="button" id="order-email" class="btn btn-primary">Order by Email</button>
+      </div>
+
+      <hr></hr>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <p>Would you like to order for eat-in, pick-up, or delivery ($5.00 fee)?</p>
+          <div class="btn-group id="fullfill">
+            <button id="fullfillment-type" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              Select method:  <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a id="delivery">Delivery</a></li>
+              <li><a id="eatin">Eat-in</a></li>
+              <li><a id="pickup">Pickup</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-sm-3" id = "food-selection">
+          <p>What are you in the mood for?</p>
+          <!-- Single button -->
+          <div class="btn-group">
+            <button id="food-type" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select method:  <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Pasta</a></li>
+              <li><a href="#">Pizza</a></li>
+              <li><a href="#">Sandwich</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-sm-3" id="">
+          <p>What size do you want that pizza (small feeds 1-2, medium 3-5, and large 6-8)?</p>
+          <!-- Single button -->
+          <div class="btn-group">
+            <button id="size" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select method:  <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Small</a></li>
+              <li><a href="#">Medium</a></li>
+              <li><a href="#">Large</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <form id="pizza-design" class="form-group">
+            <p>Choose whole wheat, white, or sourdough crust:</p>
+            <div class="btn-group">
+              <button id="crust" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select method:  <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Sourdough</a></li>
+                <li><a href="#">White</a></li>
+                <li><a href="#">Whole Wheat</a></li>
+              </ul>
+            </div>
+
+            <p>Choose garlic, marinara, or white sauce:</p>
+            <div class="btn-group">
+              <button id="sauce" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select method:  <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Pasta</a></li>
+                <li><a href="#">Pizza</a></li>
+                <li><a href="#">Sandwich</a></li>
+              </ul>
+            </div>
+
+            <p>What type of cheese would you like?</p>
+              <div class="btn-group">
+                <button id="food-type" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Select method:  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Pasta</a></li>
+                  <li><a href="#">Pizza</a></li>
+                  <li><a href="#">Sandwich</a></li>
+                </ul>
+              </div>
+
+            <p>Choose as many ingredients as you'd like:</p>
+            <div class="btn-group">
+              <button id="food-type" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select method:  <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Pasta</a></li>
+                <li><a href="#">Pizza</a></li>
+                <li><a href="#">Sandwich</a></li>
+              </ul>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+
+    </div>
   </body>
 </html>

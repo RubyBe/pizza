@@ -62,8 +62,7 @@ var pizzaPrice = 0;
 var orderTotalPrice = 0;
 // **************************************************************************************************************
 // User Interface logic
-
-
+// console displays for testing
 var myCustomer = new Customer("Dr. Gonzo", "2000 2nd Avenue, # 5, Seattle", "206-555-1212");
 var myOrder = new Order(1, "Pizza", "Delivery");
 var myPizza = new Pizza("Small", "Whole Wheat", "Garlic", ["Mushrooms", "Sausage", "Green Pepper", "Onion", "Mozzarella"]);
@@ -72,3 +71,24 @@ pizzaPrice = myPizza.calculatePizzaPrice();
 console.log("Pizza total price = $" + pizzaPrice.toFixed(2));
 orderTotalPrice = myOrder.calculateOrderPrice(pizzaPrice, myOrder.orderType);
 console.log("Order total price = $" + orderTotalPrice.toFixed(2));
+
+$(document).ready(function(){
+
+
+  $("#delivery").click(function (event) {
+    event.preventDefault();
+    console.log("wants delivery");
+    $("#food-selection").show();
+  });
+  $("#eatin").click(function (event) {
+    event.preventDefault();
+    console.log("wants to eat in");
+    $("#food-selection").show();
+  });
+  $("#pickup").click(function (event) {
+    event.preventDefault();
+    console.log("wants to pick up");
+    $("#food-selection").show();
+  });
+
+});
