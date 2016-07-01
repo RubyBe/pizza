@@ -87,12 +87,10 @@ $(document).ready(function(){
     $("#fullfill-output").text("Your order will be delivered.");
     $("#food-selection").show();
   });
-
   $("#eatin").click(function() {
     $("#fullfill-output").text("Your order and a table will be waiting for you here.");
     $("#food-selection").show();
   });
-
   $("#pickup").click(function() {
     $("#fullfill-output").text("Your order will be waiting for you to pick up here.");
     $("#food-selection").show();
@@ -103,12 +101,10 @@ $(document).ready(function(){
     $("#food-output").text("You've selected pasta for your meal.");
     $("#size-selection").hide();
   });
-
   $("#pizza").click(function() {
     $("#food-output").text("You've selected a pizza for your meal.");
     $("#size-selection").show();
   });
-
   $("#sandwich").click(function (event) {
     $("#food-output").text("You've selected a sandwich for your meal.");
     $("#size-selection").hide();
@@ -119,15 +115,46 @@ $(document).ready(function(){
     $("#size-output").text("You've decided a small pizza will work.");
     $("#ingredients-selection").show();
   });
-
   $("#medium").click(function() {
     $("#size-output").text("You've decided a medium pizza will work.");
     $("#ingredients-selection").show();
   });
-
   $("#large").click(function() {
     $("#size-output").text("You've decided a large pizza will work.");
     $("#ingredients-selection").show();
+  });
+
+  // Select the crust type
+  $("#sourdough").click(function() {
+    $("#crust-output").text("You've chosen a sourdough crust.");
+  });
+  $("#white").click(function() {
+    $("#crust-output").text("You've chosen a white crust.");
+  });
+  $("#whole-wheat").click(function() {
+    $("#crust-output").text("You've chosen a whole wheat crust.");
+  });
+
+  // Select the sauce type
+  $("#garlic").click(function() {
+    $("#sauce-output").text("Your pizza will have a garlic sauce.");
+  });
+  $("#marinara").click(function() {
+    $("#sauce-output").text("Your pizza will have a marinara sauce");
+  });
+  $("#white").click(function() {
+    $("#sauce-output").text("Your pizza will have a white sauce.");
+  });
+
+  // Select the cheese type
+  $("#feta").click(function() {
+    $("#cheese-output").text("Feta cheese is your choice.");
+  });
+  $("#fontanella").click(function() {
+    $("#cheese-output").text("Fontanella cheese is your choice.");
+  });
+  $("#mozzarella").click(function() {
+    $("#cheese-output").text("Mozarella cheese is your choice.");
   });
 
 });
