@@ -6,26 +6,27 @@
 
 #### Business Specs for the project
 
-* It can
-  * **Example input:**
-  * **Example output:**
+##### Entity:Relationship Diagram
+
+![ERD](img/erd.png)
 
 
-* It can
-  * **Example input:**
-  * **Example output:**
+
+* It can create a new customer object
+  * **Example input:** new Customer
+  * **Example output:** "Dr. Gonzo", "2000 2nd Avenue, #5, Seattle", "206-555-1212"
 
 
-* It can
-  * **Example input:**
-  * **Example output:**
+* It can create a new order
+  * **Example input:** new Order
+  * **Example output:** "CustomerID = 1", "Delivery"
 
 
-* It can
-  * **Example input:**
-  * **Example output:**
+* It can add a pizza to an order
+  * **Example input:** new Pizza
+  * **Example output:** "Whole Wheat", "Garlic", "Mushrooms, Onions, Green Pepper, Sausage, Mozzarella"
 
 
-* It can
-  * **Example input:**
-  * **Example output:**
+* It can calculate the cost of a pizza, add sales tax and delivery charge
+  * **Example input:** new Pizza
+  * **Example output:** "Whole Wheat", "Garlic", "Mushrooms, Onions, Green Pepper, Sausage, Mozzarella, $27.65"
