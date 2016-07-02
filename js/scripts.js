@@ -16,7 +16,9 @@ function Order(customerid, selection, type, price) {
   this.orderSelection = selection;
   this.orderType = type;
   this.orderPrice = 0;
-  this.orderDateTime = Date();
+  this.orderDateTime = new Date();
+  console.log(this.orderDateTime);
+  console.log(this.deliveryDateTime);
   this.orderTotalPrice = 0;
 }
 
@@ -217,7 +219,8 @@ $(document).ready(function(){
   });
 
   $("#button-order").click(function() {
-    $("#order-confirmation-output").text("Your pizza, ordered at " + this.orderDateTime + " will be delivered within one hour of your order");
+    var displayDateTime = myOrder.orderDateTime.toLocaleString();
+    $("#order-confirmation-output").text("Your order, created " + displayDateTime + ", will be ready within one hour.");
     $("#show-confirmation").show();
     console.log(myPizza);
     console.log(myOrder);
