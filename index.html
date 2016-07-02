@@ -35,12 +35,16 @@
             <div id="crust-output"></div>
             <div id="sauce-output"></div>
             <div id="cheese-output"></div>
-            <div id="toppings-output"></div>
+            <ul id="toppings-output">
+
+            </ul>
           </div>
           <div class="col-sm-5">
             <div class="col-sm-6" id="show-total-price">
-              <span>Pizza cost:</span>
+              <span>Pizza base cost:</span>
               <div id="pizza-price-output"></div>
+              <span>Extra toppings cost:</span>
+              <div id="toppings-price-output"></div>
               <span>Delivery cost:</span>
               <div id="delivery-price-output"></div>
               <span>Taxes:</span>
@@ -149,14 +153,15 @@
                 <hr></hr>
                 <p><em>First 3 toppings are free; each additional topping is $1.50.</em></p>
                 <hr></hr>
-                <input type="checkbox" name="pizza-toppings" id="greenpepper">Green Pepper<br>
-                <input type="checkbox" name="pizza-toppings" id="mushrooms">Mushrooms<br>
-                <input type="checkbox" name="pizza-toppings" id="onions">Onions<br>
-                <input type="checkbox" name="pizza-toppings" id="pepperoni">Pepperoni<br>
-                <input type="checkbox" name="pizza-toppings" id="sausage">Sausage<br>
+                <input type="checkbox" name="pizza-toppings" value="greepepper">Green Pepper<br>
+                <input type="checkbox" name="pizza-toppings" value="mushrooms">Mushrooms<br>
+                <input type="checkbox" name="pizza-toppings" value="onions">Onions<br>
+                <input type="checkbox" name="pizza-toppings" value="pepperoni">Pepperoni<br>
+                <input type="checkbox" name="pizza-toppings" value="sausage">Sausage<br>
+                <hr></hr>
+                <button id="submit-toppings" type="button" class="btn btn-primary">Add these items</button>
               </form>
               <hr></hr>
-              <button id="submit-toppings" type="button" class="btn btn-primary">Add these items</button>
             </div>
           </form>
         </div>

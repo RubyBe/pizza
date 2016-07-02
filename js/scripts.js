@@ -31,20 +31,17 @@ function Pizza(size, dough, sauce, cheese) {
 
 // A pizza class prototype method which calculates the price of the pizza based on its size and it's number of toppings
 Pizza.prototype.calculatePizzaPrice = function() {
-  var sizeCost;
   if (this.pizzaSize === "Small") {
-    sizeCost = 10;
+    pizzaSizePrice = 10;
   } else if (this.pizzaSize === "Medium") {
-    sizeCost = 15;
+    pizzaSizePrice = 15;
   } else if (this.pizzaSize === "Large") {
-    sizeCost = 20;
+    pizzaSizePrice = 20;
   } else {
     alert("Sorry, but I don't know what size pizza you want");
   }
-  var toppingCost = this.pizzaToppings.length * 1.5
-  console.log(sizeCost);
-  console.log(toppingCost);
-  return sizeCost + toppingCost;
+  pizzaToppingsPrice = (this.pizzaToppings.length -3) * 1.5
+  return pizzaSizePrice + pizzaToppingsPrice;
 }
 
 // An order class prototype method which calculates the total price of the order
@@ -58,12 +55,20 @@ Order.prototype.calculateOrderPrice = function(pizza, type) {
   return totalPrice;
 }
 
-var pizzaPrice = 0;
-var orderTotalPrice = 0;
+// Pizza.prototype.listToppings = function(pizza) {
+//   pizza.forEach(element)
+//     $("#toppings-output").html("<li>" + toppingsOut + "</li>");
+// }
+
+var pizzaPrice;
+var pizzaSizePrice;
+var pizzaToppingsPrice;
+var orderTotalPrice;
 var fulfillType;
 var orderType;
 var deliveryFee;
 var orderTaxes;
+
 // **************************************************************************************************************
 // User Interface logic
 // console displays for testing
@@ -179,16 +184,16 @@ $(document).ready(function(){
 
   $("#submit-toppings").click(function() {
     $('input[name="pizza-toppings"]:checked').each(function() {
-      myPizza.pizzaToppings.push($(this).id);
+      myPizza.pizzaToppings.push($(this).val());
     });
-    console.log(myPizza);
   });
 
-  // Click to view the current price
+  // Click to view the order pricing details in the orderDisplay div
   $("#button-price").click(function() {
     pizzaPrice = myPizza.calculatePizzaPrice();
     orderTotalPrice = myOrder.calculateOrderPrice(pizzaPrice, myOrder.orderType);
-    $("#pizza-price-output").text(pizzaPrice.toFixed(2));
+    $("#pizza-price-output").text(pizzaSizePrice.toFixed(2));
+    $("#toppings-price-output").text(pizzaToppingsPrice.toFixed(2));
     $("#delivery-price-output").text(deliveryFee.toFixed(2));
     $("#taxes-price-output").text(orderTaxes.toFixed(2));
     $("#total-price-output").text(orderTotalPrice.toFixed(2));
