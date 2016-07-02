@@ -4,7 +4,7 @@
 }
 
 /*hide menu options until selected*/
-#fullfillment-selection {
+/*#fullfillment-selection {
   display: none;
 }
 
@@ -32,6 +32,18 @@ display: none;
 display: none;
 }
 
-#pricing-ordering {
-display: none;
+#show-price-details {
+  display: none;
 }
+
+#show-price-order {
+  display: none;
+}
+
+#submit-toppings {
+  display: none;
+}
+
+#show-confirmation {
+  display: none;
+}*/

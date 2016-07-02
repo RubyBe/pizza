@@ -175,21 +175,24 @@ $(document).ready(function(){
     $("#cheese-selection").show();
   });
 
-  // Select the cheese type
+  // Select the cheese type then display the ingredients selector and submit button
   $("#feta").click(function() {
     $("#cheese-output").text("Feta cheese is your choice.");
     myPizza.pizzaCheese="Feta";
     $("#ingredients-selection").show();
+    $("#submit-toppings").show();
   });
   $("#fontanella").click(function() {
     $("#cheese-output").text("Fontanella cheese is your choice.");
     myPizza.pizzaCheese="Fontanella";
     $("#ingredients-selection").show();
+    $("#submit-toppings").show();
   });
   $("#mozzarella").click(function() {
     $("#cheese-output").text("Mozarella cheese is your choice.");
     myPizza.pizzaCheese="Mozarella";
     $("#ingredients-selection").show();
+    $("#submit-toppings").show();
   });
 
 
@@ -198,21 +201,26 @@ $(document).ready(function(){
     $('input[name="pizza-toppings"]:checked').each(function() {
       myPizza.pizzaToppings.push($(this).val());
     });
-    $("#pricing-ordering").show();
+    $("#show-price-order").show();
   });
 
   // Click to view the order pricing details in the orderDisplay div
   $("#button-price").click(function() {
     pizzaPrice = myPizza.calculatePizzaPrice();
     orderTotalPrice = myOrder.calculateOrderPrice(pizzaPrice, myOrder.orderType);
+    $("#show-price-details").show();
     $("#pizza-price-output").text(pizzaSizePrice.toFixed(2));
     $("#toppings-price-output").text(pizzaToppingsPrice.toFixed(2));
     $("#delivery-price-output").text(deliveryFee.toFixed(2));
     $("#taxes-price-output").text(orderTaxes.toFixed(2));
     $("#total-price-output").text(orderTotalPrice.toFixed(2));
+  });
 
+  $("#button-order").click(function() {
+    $("#order-confirmation-output").text("Your pizza, ordered at " + this.orderDateTime + " will be delivered within one hour of your order");
+    $("#show-confirmation").show();
     console.log(myPizza);
     console.log(myOrder);
-  })
+  });
 
 });

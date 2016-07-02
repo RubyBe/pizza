@@ -23,41 +23,39 @@
 
       <!-- logos, order details display, and cost display/submit button -->
       <div class="container jumbotron">
-        <div class="row" id="orderDisplay">
-          <div class="col-sm-2">
-            <img src="img/pizza2.jpg" alt="doc gonzo has fun" width = "100px" height="100px">
-          </div>
+        <div class="col-sm-4">
+          <div id="fullfill-output"></div>
+          <div id="food-output"></div>
+          <div id="size-output"></div>
+          <div id="crust-output"></div>
+          <div id="sauce-output"></div>
+          <div id="cheese-output"></div>
+          <ul id="toppings-output">
 
-          <div class="col-sm-4">
-            <div id="fullfill-output"></div>
-            <div id="food-output"></div>
-            <div id="size-output"></div>
-            <div id="crust-output"></div>
-            <div id="sauce-output"></div>
-            <div id="cheese-output"></div>
-            <ul id="toppings-output">
-
-            </ul>
+          </ul>
+        </div>
+        <div class="col-sm-8" id="pricing-ordering">
+          <div class="col-sm-4" id="show-price-order">
+            <div class="btn-group-vertical" role="group" id="price-order">
+              <button type="button" class="btn btn-primary" id="button-price">View Price</button>
+              <button type="button" class="btn btn-success" id="button-order">Place order</button>
+            </div>
           </div>
-          <div class="col-sm-4" id="pricing-ordering">
-            <div class="col-sm-6" id="show-price-details">
-              <span>Pizza base cost:</span>
-              <div id="pizza-price-output"></div>
-              <span>Extra toppings cost:</span>
-              <div id="toppings-price-output"></div>
-              <span>Delivery cost:</span>
-              <div id="delivery-price-output"></div>
-              <span>Taxes:</span>
-              <div id="taxes-price-output"></div>
-              <span>Total price:</span>
-              <div id="total-price-output"></div>
-            </div>
-            <div class="col-sm-2" id="show-price-order">
-              <div class="btn-group-vertical" role="group" id="price-order">
-                <button type="button" class="btn btn-primary" id="button-price">View Price</button>
-                <button type="button" class="btn btn-success" id="button-order">Place order</button>
-              </div>
-            </div>
+          <div class="col-sm-4" id="show-price-details">
+            <span>Pizza base cost:</span>
+            <div id="pizza-price-output"></div>
+            <span>Extra toppings cost:</span>
+            <div id="toppings-price-output"></div>
+            <span>Delivery cost:</span>
+            <div id="delivery-price-output"></div>
+            <span>Taxes:</span>
+            <div id="taxes-price-output"></div>
+            <span>Total price:</span>
+            <div id="total-price-output"></div>
+          </div>
+          <div class="col-sm-4" id="show-confirmation">
+            <span>Order Confirmation</span>
+            <div id="order-confirmation-output"></div>
           </div>
         </div>
       </div>
