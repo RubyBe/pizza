@@ -80,6 +80,7 @@ var myPizza;
 $(document).ready(function(){
   // debugger;
 
+  // Click to start a new online order and display the fullfillment method selector
   $("#order-online").click(function() {
     orderType="Online";
     myOrder = new Order(1);
@@ -87,7 +88,7 @@ $(document).ready(function(){
     $("#fullfillment-selection").show();
   });
 
-  // Fullfillment method always shows - selection of one will trigger option to pick food type
+  // Select the fullfillment method and display the food type selector
   $("#delivery").click(function() {
     $("#fullfill-output").text("Your order will be delivered.");
     $("#food-selection").show();
@@ -104,7 +105,7 @@ $(document).ready(function(){
     myOrder.orderType="Pickup";
   });
 
-  // Selection of food type will trigger option to pick pizza size
+  // Select the food type, and if pizza, display the pizza size selector
   $("#pasta").click(function() {
     $("#food-output").text("You've selected pasta for your meal.");
     $("#size-selection").hide();
@@ -123,69 +124,81 @@ $(document).ready(function(){
     myOrder.orderSelection="Sandwich";
   });
 
-  // Selection of size will trigger option to add ingredients
+  // Select the pizza size and display the crust selector
   $("#small").click(function() {
     $("#size-output").text("You've decided a small pizza will work.");
-    $("#ingredients-selection").show();
+    $("#crust-selection").show();
     myPizza.pizzaSize="Small";
   });
   $("#medium").click(function() {
     $("#size-output").text("You've decided a medium pizza will work.");
-    $("#ingredients-selection").show();
+    $("#crust-selection").show();
     myPizza.pizzaSize="Medium";
   });
   $("#large").click(function() {
     $("#size-output").text("You've decided a large pizza will work.");
-    $("#ingredients-selection").show();
+    $("#crust-selection").show();
     myPizza.pizzaSize="Large";
   });
 
-  // Select the crust type
+  // Select the crust type and display the sauce selector
   $("#sourdough").click(function() {
     $("#crust-output").text("You've chosen a sourdough crust.");
     myPizza.pizzaCrust="Sourdough";
+    $("#sauce-selection").show();
   });
   $("#regular").click(function() {
     $("#crust-output").text("You've chosen a regular white crust.");
     myPizza.pizzaCrust="Regular";
+    $("#sauce-selection").show();
   });
   $("#whole-wheat").click(function() {
     $("#crust-output").text("You've chosen a whole wheat crust.");
     myPizza.pizzaCrust="Whole Wheat";
+    $("#sauce-selection").show();
   });
 
-  // Select the sauce type
+  // Select the sauce type and display the cheese selector
   $("#garlic").click(function() {
     $("#sauce-output").text("Your pizza will have a garlic sauce.");
     myPizza.pizzaSauce="Garlic";
+    $("#cheese-selection").show();
   });
   $("#marinara").click(function() {
     $("#sauce-output").text("Your pizza will have a marinara sauce");
     myPizza.pizzaSauce="Marinara";
+    $("#cheese-selection").show();
   });
   $("#white").click(function() {
     $("#sauce-output").text("Your pizza will have a white sauce.");
     myPizza.pizzaSauce="White";
+    $("#cheese-selection").show();
   });
 
   // Select the cheese type
   $("#feta").click(function() {
     $("#cheese-output").text("Feta cheese is your choice.");
     myPizza.pizzaCheese="Feta";
+    $("#ingredients-selection").show();
   });
   $("#fontanella").click(function() {
     $("#cheese-output").text("Fontanella cheese is your choice.");
     myPizza.pizzaCheese="Fontanella";
+    $("#ingredients-selection").show();
   });
   $("#mozzarella").click(function() {
     $("#cheese-output").text("Mozarella cheese is your choice.");
     myPizza.pizzaCheese="Mozarella";
+    $("#ingredients-selection").show();
   });
 
+
+  // Add the selected ingredients to the pizza
   $("#submit-toppings").click(function() {
     $('input[name="pizza-toppings"]:checked').each(function() {
       myPizza.pizzaToppings.push($(this).val());
     });
+    $("#pricing-ordering").show();
   });
 
   // Click to view the order pricing details in the orderDisplay div

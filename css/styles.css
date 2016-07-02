@@ -1,3 +1,9 @@
+.jumbotron {
+  height: auto;
+  overflow: hidden;
+}
+
+/*hide menu options until selected*/
 #fullfillment-selection {
   display: none;
 }
@@ -10,11 +16,22 @@ display: none;
 display: none;
 }
 
+#crust-selection {
+display: none;
+}
+
+#sauce-selection {
+display: none;
+}
+
+#cheese-selection {
+display: none;
+}
+
 #ingredients-selection {
 display: none;
 }
 
-.jumbotron {
-  height: auto;
-  overflow: hidden;
+#pricing-ordering {
+display: none;
 }

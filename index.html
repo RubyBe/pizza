@@ -14,7 +14,6 @@
     <div class="container">
       <h1>Doc Gonzo's Pies & Noodles</h1>
       <hr></hr>
-
       <div class="btn-group-horizontal" role="group" id="order-type">
         <button type="button" id="order-online" class="btn btn-primary">Order Online</button>
         <button type="button" id="order-telephone" class="btn btn-primary">Order by Skype</button>
@@ -28,7 +27,8 @@
           <div class="col-sm-2">
             <img src="img/pizza2.jpg" alt="doc gonzo has fun" width = "100px" height="100px">
           </div>
-          <div class="col-sm-5">
+
+          <div class="col-sm-4">
             <div id="fullfill-output"></div>
             <div id="food-output"></div>
             <div id="size-output"></div>
@@ -39,8 +39,8 @@
 
             </ul>
           </div>
-          <div class="col-sm-5">
-            <div class="col-sm-6" id="show-total-price">
+          <div class="col-sm-4" id="pricing-ordering">
+            <div class="col-sm-6" id="show-price-details">
               <span>Pizza base cost:</span>
               <div id="pizza-price-output"></div>
               <span>Extra toppings cost:</span>
@@ -52,21 +52,21 @@
               <span>Total price:</span>
               <div id="total-price-output"></div>
             </div>
-            <div class="col-sm-6" id="show-price">
-              <button type="button" class="btn btn-primary" id="button-price">View Price</button>
-              <button type="button" class="btn btn-success" id="button-order">Place order</button>
+            <div class="col-sm-2" id="show-price-order">
+              <div class="btn-group-vertical" role="group" id="price-order">
+                <button type="button" class="btn btn-primary" id="button-price">View Price</button>
+                <button type="button" class="btn btn-success" id="button-order">Place order</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <hr></hr>
 
       <div class="row">
-        <div class="col-sm-3" id="fullfillment-selection">
-          <p>Would you like to order for eat-in, pick-up, or delivery ($5.00 fee)?</p>
+        <div class="col-sm-2" id="fullfillment-selection">
           <div class="btn-group" id="fullfill">
             <button id="fullfillment-type" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-             Get it by:<span class="caret"></span>
+             Pickup/Delivery:<span class="caret"></span>
             </button>
             <ul class="dropdown-menu" id=fullfilledType>
               <li><a id="delivery">Delivery</a></li>
@@ -75,13 +75,13 @@
             </ul>
           </div>
           <hr></hr>
+          <p>Would you like to eat onsite, pick up, or have us deliver ($5.00 fee)?</p>
         </div>
 
-        <div class="col-sm-3" id = "food-selection">
-          <p>What are you in the mood for?</p>
+        <div class="col-sm-2" id = "food-selection">
           <div class="btn-group">
             <button id="food-type" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              I need:<span class="caret"></span>
+              I'd like to order:<span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
               <li><a id="pasta">Pasta</a></li>
@@ -90,10 +90,10 @@
             </ul>
           </div>
           <hr></hr>
+          <p>Would you like pasta, pizza, or sandwiches?</p>
         </div>
 
-        <div class="col-sm-3" id="size-selection">
-          <p>What size do you want that pizza (small feeds 1-2, medium 3-5, and large 6-8)?</p>
+        <div class="col-sm-2" id="size-selection">
           <div class="btn-group">
             <button id="size" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Select size:  <span class="caret"></span>
@@ -105,24 +105,31 @@
             </ul>
           </div>
           <hr></hr>
+          <p>What size pizza would you like?<p>
+          <p><em>Cost for each pizza includes crust, cheese, sauce, and 3 toppings of your choice</em></p>
+          <ul>
+            <li>Small feeds 1-2 ($10.00)</li>
+            <li>Medium feeds 3-5 ($15.00)</li>
+            <li>Large feeds 6-8 ($20.00)</li>
+          </ul>
         </div>
 
-        <div class="col-sm-3" id="ingredients-selection">
-          <form id="pizza-design" class="form-group">
-            <p>Choose whole wheat, white, or sourdough crust:</p>
-            <div class="btn-group">
-              <button id="crust" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select crust:  <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu">
-                <li><a id="regular">Regular</a></li>
-                <li><a id="sourdough">Sourdough</a></li>
-                <li><a id="whole-wheat">Whole Wheat</a></li>
-              </ul>
-            </div>
-            <hr></hr>
+        <div class="col-sm-2" id="crust-selection">
+          <div class="btn-group">
+            <button id="crust" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select crust:  <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a id="regular">Regular</a></li>
+              <li><a id="sourdough">Sourdough</a></li>
+              <li><a id="whole-wheat">Whole Wheat</a></li>
+            </ul>
+          </div>
+          <hr></hr>
+          <p>We have whole wheat, white (regular), or sourdough crust.</p>
+        </div>
 
-            <p>Choose garlic, marinara, or white sauce:</p>
+        <div class="col-sm-2" id="sauce-selection">
             <div class="btn-group">
               <button id="sauce" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Select sauce:  <span class="caret"></span>
@@ -134,37 +141,59 @@
               </ul>
             </div>
             <hr></hr>
+            <p>You can choose garlic, marinara, or white (alfredo-type) sauce.</p>
+          </div>
 
-            <p>What type of cheese would you like?</p>
-            <div class="btn-group">
-              <button id="food-type" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select cheese:  <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu">
-                <li><a id="feta">Feta</a></li>
-                <li><a id="fontanella">Fontanella</a></li>
-                <li><a id="mozzarella">Mozzarella</a></li>
-              </ul>
+        <div class="col-sm-2" id="cheese-selection">
+          <div class="btn-group">
+            <button id="food-type" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select cheese:  <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a id="feta">Feta</a></li>
+              <li><a id="fontanella">Fontanella</a></li>
+              <li><a id="mozzarella">Mozzarella</a></li>
+            </ul>
+          </div>
+          <hr></hr>
+          <p>We have feta, fontanella, or mozzarella cheeses.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12" id="ingredients-selection">
+          <hr></hr>
+          <p>Choose as many ingredients as you'd like <em>(3 toppings are included free, and each additional topping is $1.50):</em></p>
+          <form id="ingredients">
+            <div class="col-sm-3">
+              <input type="checkbox" name="pizza-toppings" value="greepepper">Green Pepper<br>
+              <input type="checkbox" name="pizza-toppings" value="mushrooms">Mushrooms<br>
+              <input type="checkbox" name="pizza-toppings" value="onions">Onions<br>
+              <input type="checkbox" name="pizza-toppings" value="olives">Olives<br>
+              <input type="checkbox" name="pizza-toppings" value="sundried-tomatoes">Sundried Tomators<br>
             </div>
-            <hr></hr>
-
-            <p>Choose as many ingredients as you'd like:</p>
-              <form id="ingredients">
-                <hr></hr>
-                <p><em>First 3 toppings are free; each additional topping is $1.50.</em></p>
-                <hr></hr>
-                <input type="checkbox" name="pizza-toppings" value="greepepper">Green Pepper<br>
-                <input type="checkbox" name="pizza-toppings" value="mushrooms">Mushrooms<br>
-                <input type="checkbox" name="pizza-toppings" value="onions">Onions<br>
-                <input type="checkbox" name="pizza-toppings" value="pepperoni">Pepperoni<br>
-                <input type="checkbox" name="pizza-toppings" value="sausage">Sausage<br>
-                <hr></hr>
-                <button id="submit-toppings" type="button" class="btn btn-primary">Add these items</button>
-              </form>
-              <hr></hr>
+            <div class="col-sm-3">
+              <input type="checkbox" name="pizza-toppings" value="pepperoni">Pepperoni<br>
+              <input type="checkbox" name="pizza-toppings" value="canadian-bacon">Canadian Bacon<br>
+              <input type="checkbox" name="pizza-toppings" value="ham">Ham<br>
+              <input type="checkbox" name="pizza-toppings" value="ground beef">Ground Beef<br>
+              <input type="checkbox" name="pizza-toppings" value="sausage">Sausage<br>
+            </div>
+            <div class="col-sm-3">
+              <input type="checkbox" name="pizza-toppings" value="basil">Fresh Basil Leaves<br>
+              <input type="checkbox" name="pizza-toppings" value="parsley">Fresh Chopped Parsley<br>
+              <input type="checkbox" name="pizza-toppings" value="chives">Fresh Chopped Chives<br>
+              <input type="checkbox" name="pizza-toppings" value="fennel">Fresh Sliced Fennel<br>
+              <input type="checkbox" name="pizza-toppings" value="oregano">Fresh Chopped Oregano<br>
             </div>
           </form>
         </div>
+      </div>
+      <hr></hr>
+      <button id="submit-toppings" type="button" class="btn btn-primary">Add these items</button>
+
+
+
 
     </div>
   </body>
