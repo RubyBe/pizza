@@ -87,6 +87,7 @@ $(document).ready(function(){
     orderType="Online";
     myOrder = new Order(1);
     console.log(myOrder);
+    $(".conOptions").show();
     $("#fullfillment-selection").show();
   });
 
@@ -181,18 +182,21 @@ $(document).ready(function(){
   $("#feta").click(function() {
     $("#cheese-output").text("Feta cheese is your choice.");
     myPizza.pizzaCheese="Feta";
+    $(".conToppings").show();
     $("#ingredients-selection").show();
     $("#submit-toppings").show();
   });
   $("#fontanella").click(function() {
     $("#cheese-output").text("Fontanella cheese is your choice.");
     myPizza.pizzaCheese="Fontanella";
+    $(".conToppings").show();
     $("#ingredients-selection").show();
     $("#submit-toppings").show();
   });
   $("#mozzarella").click(function() {
     $("#cheese-output").text("Mozarella cheese is your choice.");
     myPizza.pizzaCheese="Mozarella";
+    $(".conToppings").show();
     $("#ingredients-selection").show();
     $("#submit-toppings").show();
   });

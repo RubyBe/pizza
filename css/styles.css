@@ -1,9 +1,30 @@
 .jumbotron {
-  height: auto;
+  height: 360px;
   overflow: hidden;
+  font-size: 15px;
+}
+
+.conHeader {
+  background-image: url('../img/pizza2.png');
+}
+
+#size-list {
+  list-style: none;
+  font-size: 15px;
+  align-items: baseline;
 }
 
 /*hide menu options until selected*/
+
+.conOptions {
+  display: none;
+}
+
+.conToppings {
+  height: 250px;
+  display: none;
+}
+
 #fullfillment-selection {
   display: none;
 }
