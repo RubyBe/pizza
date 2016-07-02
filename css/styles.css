@@ -1,4 +1,4 @@
-#fullfillment-selection {
+/*#fullfillment-selection {
   display: none;
 }
 
@@ -12,8 +12,9 @@ display: none;
 
 #ingredients-selection {
 display: none;
-}
+}*/
 
 .jumbotron {
-  height: 250px;
+  height: auto;
+  overflow: hidden;
 }

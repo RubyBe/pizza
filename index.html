@@ -146,12 +146,17 @@
 
             <p>Choose as many ingredients as you'd like:</p>
               <form id="ingredients">
-                <input type="checkbox" id="greenpepper">Green Pepper<br>
-                <input type="checkbox" id="mushrooms">Mushrooms<br>
-                <input type="checkbox" id="onions">Onions<br>
-                <input type="checkbox" id="pepperoni">Pepperoni<br>
-                <input type="checkbox" id="sausage">Sausage<br>
+                <hr></hr>
+                <p><em>First 3 toppings are free; each additional topping is $1.50.</em></p>
+                <hr></hr>
+                <input type="checkbox" name="pizza-toppings" id="greenpepper">Green Pepper<br>
+                <input type="checkbox" name="pizza-toppings" id="mushrooms">Mushrooms<br>
+                <input type="checkbox" name="pizza-toppings" id="onions">Onions<br>
+                <input type="checkbox" name="pizza-toppings" id="pepperoni">Pepperoni<br>
+                <input type="checkbox" name="pizza-toppings" id="sausage">Sausage<br>
               </form>
+              <hr></hr>
+              <button id="submit-toppings" type="button" class="btn btn-primary">Add these items</button>
             </div>
           </form>
         </div>
