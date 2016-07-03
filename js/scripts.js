@@ -1,7 +1,8 @@
-// **************************************************************************************************************
+// Pizza ordering website
+// ************************************************************************
 // Business logic
 
-// Create a new customer (unique customer id would be generated, here we assign id = 1)
+// Constructor to create a new customer (unique customer id would be generated, here we assign id = 1)
 function Customer(name, address, telephone) {
   this.customerID = 1;
   this.customerName = name;
@@ -10,19 +11,16 @@ function Customer(name, address, telephone) {
   console.log("I am " + this.customerName + ", customer #" + this.customerID + " - " + this.customerAddress + " " + this.customerTelephone);
 }
 
-// Customer can create a new online order by clicking an 'Order Online' button
+// Constructor to create a new online order
 function Order(customerid, selection, type, price) {
   this.orderCustomerID = customerid;
   this.orderSelection = selection;
   this.orderType = type;
-  this.orderPrice = 0;
   this.orderDateTime = new Date();
-  console.log(this.orderDateTime);
-  console.log(this.deliveryDateTime);
   this.orderTotalPrice = 0;
 }
 
-// Customer can add a pizza to their order by clicking the "Add a Pizza" button
+// Constructor to create a new pizza
 function Pizza(size, dough, sauce, cheese) {
   this.pizzaSize = size;
   this.pizzaDough = dough;
@@ -57,11 +55,7 @@ Order.prototype.calculateOrderPrice = function(pizza, type) {
   return totalPrice;
 }
 
-// Pizza.prototype.listToppings = function(pizza) {
-//   pizza.forEach(element)
-//     $("#toppings-output").html("<li>" + toppingsOut + "</li>");
-// }
-
+// global variables
 var pizzaPrice;
 var pizzaSizePrice;
 var pizzaToppingsPrice;
@@ -70,28 +64,31 @@ var fulfillType;
 var orderType;
 var deliveryFee;
 var orderTaxes;
-
-// **************************************************************************************************************
-// User Interface logic
-// console displays for testing
-var myCustomer = new Customer("Dr. Gonzo", "2000 2nd Avenue, # 5, Seattle", "206-555-1212");
 var myOrder;
-var myPizza;
-// ("Small", "Whole Wheat", "Garlic", ["Mushrooms", "Sausage", "Green Pepper", "Onion", "Mozzarella"]);
 
+// Variables to hold the parameter values to pass to the pizza constructor
+var myPizzaSize;
+var myPizzaCrust;
+var myPizzaSauce;
+var myPizzaCheese;
+var myPizza; // this Pizza object is created after the customer has made the cheese selection; it's then ready to add the toppings
+
+// create a placeholder customer
+var myCustomer = new Customer("Dr. Gonzo", "2000 2nd Avenue, # 5, Seattle", "206-555-1212");
+// **************************************************************************
+// User Interface logic
 $(document).ready(function(){
-  // debugger;
+  // Customer object (customerID = 1) is hard-coded in business logic
 
-  // Click to start a new online order and display the fullfillment method selector
+  // Click to start a new online order and create a new Order object
   $("#order-online").click(function() {
     orderType="Online";
     myOrder = new Order(1);
-    console.log(myOrder);
-    $(".conOptions").show();
-    $("#fullfillment-selection").show();
+    $(".conOptions").show(); // display the container which holds all of the dropdown menu items
+    $("#fullfillment-selection").show(); // show the fullfillment options selector
   });
 
-  // Select the fullfillment method and display the food type selector
+  // Select the fullfillment option and then display the food type options selector
   $("#delivery").click(function() {
     $("#fullfill-output").text("Your order will be delivered.");
     $("#food-selection").show();
@@ -108,7 +105,7 @@ $(document).ready(function(){
     myOrder.orderType="Pickup";
   });
 
-  // Select the food type, and if pizza, display the pizza size selector
+  // Select the food type, and if pizza, create a new pizza object and display the pizza size selector
   $("#pasta").click(function() {
     $("#food-output").text("You've selected pasta for your meal.");
     $("#size-selection").hide();
@@ -118,8 +115,6 @@ $(document).ready(function(){
     $("#food-output").text("You've selected a pizza for your meal.");
     $("#size-selection").show();
     myOrder.orderSelection="Pizza";
-    myPizza = new Pizza();
-    console.log(myPizza);
   });
   $("#sandwich").click(function (event) {
     $("#food-output").text("You've selected a sandwich for your meal.");
@@ -131,71 +126,74 @@ $(document).ready(function(){
   $("#small").click(function() {
     $("#size-output").text("You've decided a small pizza will work.");
     $("#crust-selection").show();
-    myPizza.pizzaSize="Small";
+    myPizzaSize ="Small";
   });
   $("#medium").click(function() {
     $("#size-output").text("You've decided a medium pizza will work.");
     $("#crust-selection").show();
-    myPizza.pizzaSize="Medium";
+    myPizzaSize ="Medium";
   });
   $("#large").click(function() {
     $("#size-output").text("You've decided a large pizza will work.");
     $("#crust-selection").show();
-    myPizza.pizzaSize="Large";
+    myPizzaSize ="Large";
   });
 
   // Select the crust type and display the sauce selector
   $("#sourdough").click(function() {
     $("#crust-output").text("You've chosen a sourdough crust.");
-    myPizza.pizzaCrust="Sourdough";
+    myPizzaCrust ="Sourdough";
     $("#sauce-selection").show();
   });
   $("#regular").click(function() {
     $("#crust-output").text("You've chosen a regular white crust.");
-    myPizza.pizzaCrust="Regular";
+    myPizzaCrust ="Regular";
     $("#sauce-selection").show();
   });
   $("#whole-wheat").click(function() {
     $("#crust-output").text("You've chosen a whole wheat crust.");
-    myPizza.pizzaCrust="Whole Wheat";
+    myPizzaCrust ="Whole Wheat";
     $("#sauce-selection").show();
   });
 
   // Select the sauce type and display the cheese selector
   $("#garlic").click(function() {
     $("#sauce-output").text("Your pizza will have a garlic sauce.");
-    myPizza.pizzaSauce="Garlic";
+    myPizzaSauce ="Garlic";
     $("#cheese-selection").show();
   });
   $("#marinara").click(function() {
     $("#sauce-output").text("Your pizza will have a marinara sauce.");
-    myPizza.pizzaSauce="Marinara";
+    myPizzaSauce ="Marinara";
     $("#cheese-selection").show();
   });
   $("#white").click(function() {
     $("#sauce-output").text("Your pizza will have a white sauce.");
-    myPizza.pizzaSauce="White";
+    myPizzaSauce ="White";
     $("#cheese-selection").show();
   });
 
-  // Select the cheese type then display the ingredients selector and submit button
+  // Select the cheese type, create the pizza object, and then display the ingredients selector and submit button
   $("#feta").click(function() {
     $("#cheese-output").text("Feta cheese is your choice.");
-    myPizza.pizzaCheese="Feta";
+    myPizzaCheese ="Feta";
+    myPizza = new Pizza(myPizzaSize, myPizzaCrust, myPizzaSauce, myPizzaCheese);
     $(".conToppings").show();
     $("#ingredients-selection").show();
     $("#submit-toppings").show();
   });
   $("#fontanella").click(function() {
     $("#cheese-output").text("Fontanella cheese is your choice.");
-    myPizza.pizzaCheese="Fontanella";
+    myPizzaCheese ="Fontanella";
+    myPizza = new Pizza(myPizzaSize, myPizzaCrust, myPizzaSauce, myPizzaCheese);
     $(".conToppings").show();
     $("#ingredients-selection").show();
     $("#submit-toppings").show();
   });
   $("#mozzarella").click(function() {
     $("#cheese-output").text("Mozarella cheese is your choice.");
-    myPizza.pizzaCheese="Mozarella";
+    myPizzaCheese ="Mozarella";
+    myPizza = new Pizza(myPizzaSize, myPizzaCrust, myPizzaSauce, myPizzaCheese);
     $(".conToppings").show();
     $("#ingredients-selection").show();
     $("#submit-toppings").show();
@@ -208,13 +206,14 @@ $(document).ready(function(){
       myPizza.pizzaToppings.push($(this).val());
     });
     $("#show-price-order").show();
-    $("#toppings-output").text("And the following are your toppings: " + myPizza.pizzaToppings);
+    $("#toppings-output").html("<em>And the following are your toppings: </em>" + myPizza.pizzaToppings);
   });
 
   // Click to view the order pricing details in the orderDisplay div
   $("#button-price").click(function() {
-    pizzaPrice = myPizza.calculatePizzaPrice();
-    orderTotalPrice = myOrder.calculateOrderPrice(pizzaPrice, myOrder.orderType);
+    pizzaPrice = myPizza.calculatePizzaPrice(); // call to function to calculate base pizza price with toppings
+    orderTotalPrice = myOrder.calculateOrderPrice(pizzaPrice, myOrder.orderType); // call to function to calculate total order price by adding pizza price, sales tax, delivery charges
+    myOrder.orderTotalPrice = orderTotalPrice;
     $("#show-price-details").show();
     $("#pizza-price-output").text(pizzaSizePrice.toFixed(2));
     $("#toppings-price-output").text(pizzaToppingsPrice.toFixed(2));
