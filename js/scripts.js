@@ -168,7 +168,7 @@ $(document).ready(function(){
     $("#cheese-selection").show();
   });
   $("#marinara").click(function() {
-    $("#sauce-output").text("Your pizza will have a marinara sauce");
+    $("#sauce-output").text("Your pizza will have a marinara sauce.");
     myPizza.pizzaSauce="Marinara";
     $("#cheese-selection").show();
   });
@@ -208,6 +208,7 @@ $(document).ready(function(){
       myPizza.pizzaToppings.push($(this).val());
     });
     $("#show-price-order").show();
+    $("#toppings-output").text("And the following are your toppings: " + myPizza.pizzaToppings);
   });
 
   // Click to view the order pricing details in the orderDisplay div
