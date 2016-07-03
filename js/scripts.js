@@ -2,7 +2,7 @@
 // ************************************************************************
 // Business logic
 
-// Constructor to create a new customer (unique customer id would be generated, here we assign id = 1)
+// Constructor to create a new customer (unique customer id would be generated, here we assign id = 1), which takes 3 parameters and outputs the customer details to the console
 function Customer(name, address, telephone) {
   this.customerID = 1;
   this.customerName = name;
@@ -11,16 +11,39 @@ function Customer(name, address, telephone) {
   console.log("I am " + this.customerName + ", customer #" + this.customerID + " - " + this.customerAddress + " " + this.customerTelephone);
 }
 
-// Constructor to create a new online order
-function Order(customerid, selection, type, price) {
+// Constructor to create a new online order which takes 1 parameter
+function Order(customerid) {
   this.orderCustomerID = customerid;
-  this.orderSelection = selection;
-  this.orderType = type;
+  this.orderSelection;
+  this.orderType;
   this.orderDateTime = new Date();
-  this.orderTotalPrice = 0;
+  this.orderTotalPrice;
 }
 
-// Constructor to create a new pizza
+// Prototype methods for the Order object
+// An Order class method which calculates the total price of the order
+Order.prototype.calculateOrderPrice = function(pizza, type) {
+  deliveryFee = 0;
+  if (type === "Delivery") {
+    deliveryFee = 5; // add $5 delivery fee
+  }
+  orderTaxes = (pizza*.10);
+  var totalPrice = (pizza + orderTaxes + deliveryFee);
+  return totalPrice;
+}
+
+// An Order class method which sets the order fullfillment type
+Order.prototype.setOrderType = function(type) {
+  this.orderType = type;
+}
+
+// An Order class method which sets the order selection type
+Order.prototype.setSelectionType = function(type) {
+  this.orderSelection = type;
+}
+
+
+// Constructor to create a new pizza which takes 4 parameters
 function Pizza(size, dough, sauce, cheese) {
   this.pizzaSize = size;
   this.pizzaDough = dough;
@@ -29,6 +52,7 @@ function Pizza(size, dough, sauce, cheese) {
   this.pizzaToppings = [];
 }
 
+// Pizza class prototype methods
 // A pizza class prototype method which calculates the price of the pizza based on its size and it's number of toppings
 Pizza.prototype.calculatePizzaPrice = function() {
   if (this.pizzaSize === "Small") {
@@ -38,21 +62,10 @@ Pizza.prototype.calculatePizzaPrice = function() {
   } else if (this.pizzaSize === "Large") {
     pizzaSizePrice = 20;
   } else {
-    alert("Sorry, but I don't know what size pizza you want");
+    alert("Sorry, but I don't know what size pizza you want"); // cannot continue pizza order without the pizza size - all other pizza options are not required
   }
   pizzaToppingsPrice = (this.pizzaToppings.length -3) * 1.5
   return pizzaSizePrice + pizzaToppingsPrice;
-}
-
-// An order class prototype method which calculates the total price of the order
-Order.prototype.calculateOrderPrice = function(pizza, type) {
-  deliveryFee = 0;
-  if (type === "Delivery") {
-    deliveryFee = 5; // add $5 delivery fee
-  }
-  orderTaxes = (pizza*.10);
-  var totalPrice = (pizza + orderTaxes + deliveryFee);
-  return totalPrice;
 }
 
 // global variables
@@ -75,54 +88,56 @@ var myPizza; // this Pizza object is created after the customer has made the che
 
 // create a placeholder customer
 var myCustomer = new Customer("Dr. Gonzo", "2000 2nd Avenue, # 5, Seattle", "206-555-1212");
+
+
 // **************************************************************************
 // User Interface logic
 $(document).ready(function(){
   // Customer object (customerID = 1) is hard-coded in business logic
 
-  // Click to start a new online order and create a new Order object
+  // Click to start a new online order and call the new Order constructor
   $("#order-online").click(function() {
     orderType="Online";
-    myOrder = new Order(1);
+    myOrder = new Order(1); // new order passing the customerID parmeter 1
     $(".conOptions").show(); // display the container which holds all of the dropdown menu items
     $("#fullfillment-selection").show(); // show the fullfillment options selector
   });
 
-  // Select the fullfillment option and then display the food type options selector
+  // Select the fullfillment option, call the Order method that sets the order type, and then display the food type options selector
   $("#delivery").click(function() {
     $("#fullfill-output").text("Your order will be delivered.");
     $("#food-selection").show();
-    myOrder.orderType="Delivery";
+    myOrder.setOrderType("Delivery");
   });
   $("#eatin").click(function() {
     $("#fullfill-output").text("Your order and a table will be waiting for you here.");
     $("#food-selection").show();
-    myOrder.orderType="Eatin";
+    myOrder.setOrderType("Eatin");
   });
   $("#pickup").click(function() {
     $("#fullfill-output").text("Your order will be waiting for you to pick up here.");
     $("#food-selection").show();
-    myOrder.orderType="Pickup";
+    myOrder.setOrderType("Pickup");
   });
 
-  // Select the food type, and if pizza, create a new pizza object and display the pizza size selector
+  // Select the food type, call the order method that sets the food type. If pizza, create a new pizza object and display the pizza size selector
   $("#pasta").click(function() {
     $("#food-output").text("You've selected pasta for your meal.");
     $("#size-selection").hide();
-    myOrder.orderSelection="Pasta";
+    myOrder.setSelectionType("Pasta");
   });
   $("#pizza").click(function() {
     $("#food-output").text("You've selected a pizza for your meal.");
     $("#size-selection").show();
-    myOrder.orderSelection="Pizza";
+    myOrder.setSelectionType("Pizza");
   });
   $("#sandwich").click(function (event) {
     $("#food-output").text("You've selected a sandwich for your meal.");
     $("#size-selection").hide();
-    myOrder.orderSelection="Sandwich";
+    myOrder.setSelectionType("Sandwich");
   });
 
-  // Select the pizza size and display the crust selector
+  // Select the pizza size, store it for later pizza object construction, and display the crust selector
   $("#small").click(function() {
     $("#size-output").text("You've decided a small pizza will work.");
     $("#crust-selection").show();
@@ -139,7 +154,7 @@ $(document).ready(function(){
     myPizzaSize ="Large";
   });
 
-  // Select the crust type and display the sauce selector
+  // Select the crust type, store it for later pizza object construction, and display the sauce selector
   $("#sourdough").click(function() {
     $("#crust-output").text("You've chosen a sourdough crust.");
     myPizzaCrust ="Sourdough";
@@ -156,7 +171,7 @@ $(document).ready(function(){
     $("#sauce-selection").show();
   });
 
-  // Select the sauce type and display the cheese selector
+  // Select the sauce type, store it for later pizza object construction, and display the cheese selector
   $("#garlic").click(function() {
     $("#sauce-output").text("Your pizza will have a garlic sauce.");
     myPizzaSauce ="Garlic";
@@ -200,7 +215,8 @@ $(document).ready(function(){
   });
 
 
-  // Add the selected ingredients to the pizza
+  // Add the selected ingredients to a Pizza object array, display them in the selections details
+  // Show the pricing and order buttons
   $("#submit-toppings").click(function() {
     $('input[name="pizza-toppings"]:checked').each(function() {
       myPizza.pizzaToppings.push($(this).val());
@@ -222,6 +238,7 @@ $(document).ready(function(){
     $("#total-price-output").text(orderTotalPrice.toFixed(2));
   });
 
+  // Click to view the confirmation details for the order
   $("#button-order").click(function() {
     var displayDateTime = myOrder.orderDateTime.toLocaleString();
     $("#order-confirmation-output").text("Your order, created " + displayDateTime + ", will be ready within one hour.");
