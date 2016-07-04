@@ -214,6 +214,9 @@ $(document).ready(function(){
     $("#submit-toppings").show();
   });
 
+  $("#checkall").change(function() {
+    $('input[name="pizza-toppings"]').prop('checked', $(this).prop("checked"));
+  });
 
   // Add the selected ingredients to a Pizza object array, display them in the selections details
   // Show the pricing and order buttons
@@ -236,6 +239,8 @@ $(document).ready(function(){
     $("#delivery-price-output").text(deliveryFee.toFixed(2));
     $("#taxes-price-output").text(orderTaxes.toFixed(2));
     $("#total-price-output").text(orderTotalPrice.toFixed(2));
+    console.log(myPizza);
+    console.log(myOrder);
   });
 
   // Click to view the confirmation details for the order
@@ -245,6 +250,28 @@ $(document).ready(function(){
     $("#show-confirmation").show();
     console.log(myPizza);
     console.log(myOrder);
+  });
+
+  // Click to clear entire order and start again
+  $("#button-reset").click(function() {
+    myPizza = "";
+    myOrder = "";
+    $("#fullfill-output").text("");
+    $("#food-output").text("");
+    $("#size-output").text("");
+    $("#crust-output").text("");
+    $("#sauce-output").text("");
+    $("#cheese-output").text("");
+    $("#toppings-output").text("");
+    $("#fullfillment-selection").hide();
+    $("#food-selection").hide();
+    $("#size-selection").hide();
+    $("#crust-selection").hide();
+    $("#sauce-selection").hide();
+    $("#cheese-selection").hide();
+    $(".conOptions").hide();
+    $(".conToppings").hide();
+    $("#submit-toppings").hide();
   });
 
 });
