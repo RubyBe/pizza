@@ -8,20 +8,29 @@
   background-image: url('../img/pizza2.png');
 }
 
+.conAlternatives {
+  height: 75px;
+  background-color: steelblue;
+  color: white;
+}
+
 #size-list {
   list-style: none;
   font-size: 15px;
   align-items: baseline;
 }
 
-/*hide menu options until selected*/
+/*hide alternative order options and menu options until selected*/
+
+.conAlternatives {
+  display: none;
+}
 
 .conOptions {
   display: none;
 }
 
 .conToppings {
-  height: 250px;
   display: none;
 }
 

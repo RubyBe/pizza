@@ -99,8 +99,19 @@ $(document).ready(function(){
   $("#order-online").click(function() {
     orderType="Online";
     myOrder = new Order(1); // new order passing the customerID parmeter 1
+    $(".conAlternatives").hide(); // hide alternative order options if displayed
     $(".conOptions").show(); // display the container which holds all of the dropdown menu items
     $("#fullfillment-selection").show(); // show the fullfillment options selector
+  });
+
+  $("#order-telephone").click(function() {
+    $(".conOptions").hide(); // hide online options if displayed
+    $(".conAlternatives").show(); // display phone/skype options
+  });
+
+  $("#order-email").click(function() {
+    $(".conOptions").hide(); // hide online options if displayed
+    $(".conAlternatives").show(); // display phone/skype options
   });
 
   // Select the fullfillment option, call the Order method that sets the order type, and then display the food type options selector
@@ -263,6 +274,11 @@ $(document).ready(function(){
     $("#sauce-output").text("");
     $("#cheese-output").text("");
     $("#toppings-output").text("");
+    $("#pizza-price-output").text("");
+    $("#toppings-price-output").text("");
+    $("#delivery-price-output").text("");
+    $("#taxes-price-output").text("");
+    $("#total-price-output").text("");
     $("#fullfillment-selection").hide();
     $("#food-selection").hide();
     $("#size-selection").hide();
