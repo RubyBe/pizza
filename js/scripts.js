@@ -68,6 +68,35 @@ Pizza.prototype.calculatePizzaPrice = function() {
   return pizzaSizePrice + pizzaToppingsPrice;
 }
 
+// Miscellaneous functions
+
+// function to clear fields after a reset request
+clearAll = function() {
+  myPizza = "";
+  myOrder = "";
+  $("#fullfill-output").text("");
+  $("#food-output").text("");
+  $("#size-output").text("");
+  $("#crust-output").text("");
+  $("#sauce-output").text("");
+  $("#cheese-output").text("");
+  $("#toppings-output").text("");
+  $("#pizza-price-output").text("");
+  $("#toppings-price-output").text("");
+  $("#delivery-price-output").text("");
+  $("#taxes-price-output").text("");
+  $("#total-price-output").text("");
+  $("#fullfillment-selection").hide();
+  $("#food-selection").hide();
+  $("#size-selection").hide();
+  $("#crust-selection").hide();
+  $("#sauce-selection").hide();
+  $("#cheese-selection").hide();
+  $(".conOptions").hide();
+  $(".conToppings").hide();
+  $("#submit-toppings").hide();
+}
+
 // global variables
 var pizzaPrice;
 var pizzaSizePrice;
@@ -265,29 +294,7 @@ $(document).ready(function(){
 
   // Click to clear entire order and start again
   $("#button-reset").click(function() {
-    myPizza = "";
-    myOrder = "";
-    $("#fullfill-output").text("");
-    $("#food-output").text("");
-    $("#size-output").text("");
-    $("#crust-output").text("");
-    $("#sauce-output").text("");
-    $("#cheese-output").text("");
-    $("#toppings-output").text("");
-    $("#pizza-price-output").text("");
-    $("#toppings-price-output").text("");
-    $("#delivery-price-output").text("");
-    $("#taxes-price-output").text("");
-    $("#total-price-output").text("");
-    $("#fullfillment-selection").hide();
-    $("#food-selection").hide();
-    $("#size-selection").hide();
-    $("#crust-selection").hide();
-    $("#sauce-selection").hide();
-    $("#cheese-selection").hide();
-    $(".conOptions").hide();
-    $(".conToppings").hide();
-    $("#submit-toppings").hide();
+    clearAll();
   });
 
 });
