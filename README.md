@@ -45,3 +45,9 @@
   ##### User Interface Wireframe
 
   ![interface](img/interface.png)
+  
+### License
+
+#### Copyright (c) 2016 Sid Benavente
+
+#### This software is licensed under the MIT license.
